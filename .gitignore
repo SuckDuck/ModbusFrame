@@ -1,0 +1,4 @@
+.vscode
+modbusframe
+*.o
+*.a
