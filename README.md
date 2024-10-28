@@ -65,8 +65,12 @@ int main(){
     int response_len;
 
     MB_response example_response;
-    MB_initResponse(&example_response,response_buffer,response_len);
-    
+    int rc = MB_initResponse(&example_response,response_buffer,response_len);
+    if(rc != MB_OK){
+        fprintf(stderr,"%s\n",MB_strerror(rc));    
+        return 1;
+    }
+
     //EXTRACT THE VALUES OF THE REGISTERS TO 'registers' POINTER,
     //SET 'registers_c' WITH THE REGISTERS COUNT
     uint16_t* registers;
